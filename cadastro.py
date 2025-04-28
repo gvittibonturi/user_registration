@@ -1,4 +1,6 @@
-# Programa de cadastro de usuários e sorteio de cards com valor
+# Programa: Cadastro.py
+# Descrição: Cadastro de usuários em Python 
+# Data: Abril de 2025
 
 import random
 from datetime import datetime
