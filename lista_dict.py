@@ -1,3 +1,4 @@
+# código de exemplo de dicionário
 sdnt_inv = []
 
 while True:
