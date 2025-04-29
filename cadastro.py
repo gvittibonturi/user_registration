@@ -14,16 +14,17 @@ while True:
     valor_nome = input('Digite o nome do usuário: ')    
     if valor_nome == 'q':
         print('Programa finalizado')
-        print(usuarios)
+        print(usuarios)     
         break # Interrompe o laço se o usuário digitar 'q'
 
     try:
         valor_idade = (input('Digite a idade do usuário: '))
         str_aniversario = input('Digite a data de aniversário: ')
-        data_niver_convert = datetime.strptime(str_aniversario, '%d/%m/%Y') # registra a data digitada do aniversario do usuario
+        data_niver_convert = datetime.strptime(str_aniversario, '%d/%m/%Y') # registra a data digitada do aniversario do usuario e converte para TIME
+        data_niver_br = data_niver_convert.strftime('%d/%m;%Y') # converte a variável 'data_niver_convert' para padrão brasileiro
         data_cad_convert = datetime.now().strftime('%d/%m/%Y') # registra a data do cadastro do usuário
 
-        info_usuario = {'Nome': valor_nome, 'idade': valor_idade, 'data_aniversario': data_niver_convert,
+        info_usuario = {'Nome': valor_nome, 'idade': valor_idade, 'data_aniversario': data_niver_br,
                          'data_cadastro': data_cad_convert}
         
         usuarios.append(info_usuario)
