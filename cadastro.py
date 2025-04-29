@@ -1,6 +1,7 @@
 # Programa: Cadastro.py
 # Descrição: Cadastro de usuários em Python 
 # Data: Abril de 2025
+# Programador: Glauco Vitti Bonturi
 
 import random
 from datetime import datetime
@@ -47,8 +48,9 @@ while True:
     except ValueError:
         print('Entrada inválida. Digite um nome válido.')
 
-#     #print(f'Data do cadastro: {data_cadastro}')
-#     #cartao_usuario = random.choice(cartoes)
+#print(f'Data do cadastro: {data_cadastro}')
+cartao_usuario = random.choice(cartoes)
+print(cartao_usuario)
 
 else:
     print('Programa finalilzado')
