@@ -45,12 +45,13 @@ while True:
         usuario_cadastrado = User(valor_nome, valor_idade, data_niver_br, data_cad_convert)
         usuario_cadastrado.cadastrar_usuario()
         
+        cartao_usuario = random.choice(cartoes)
+        print(cartao_usuario)
+        
     except ValueError:
         print('Entrada inválida. Digite um nome válido.')
 
 #print(f'Data do cadastro: {data_cadastro}')
-cartao_usuario = random.choice(cartoes)
-print(cartao_usuario)
 
 else:
     print('Programa finalilzado')
