@@ -13,13 +13,13 @@ usuarios = []
 class User():
     """Classe que cria e define o usuário de um sistema"""
 
-    def __init__(self, nome, idade, data_aniversario, data_cadastro, cartao_usuario):
+    def __init__(self, nome, idade, data_aniversario, data_cadastro):
         """Inicializa os atributos nome, idade, data_aniversario e data_cadastro"""
         self.nome = nome
         self.idade = idade
         self.data_aniversario = data_aniversario
         self.data_cadastro = data_cadastro
-        self.cartao_usuario = cartao_usuario
+        # self.cartao_usuario = cartao_usuario
 
     def cadastrar_usuario(self):
         """Cadastra novos usuáriosem uma lista de dicionários"""
@@ -28,9 +28,9 @@ class User():
         
         usuarios.append(info_usuario)
 
-    def desejar_boasvindas(self):
+    def desejar_boasvindas(self, cartao_usuario):
         print(f'Olá {self.nome}, seu registro foi concluído com sucesso no dia {self.data_cadastro}.')
-        print(f'Parabéns, houve um sorteio e você ganhou um cartão de compras no valor de {self.cartao_usuario}')
+        print(f'Parabéns, houve um sorteio e você ganhou um cartão de compras no valor de {cartao_usuario}')
 
 
 while True:
@@ -39,7 +39,7 @@ while True:
         print('Programa finalizado')
         print(usuarios)     
         break # Interrompe o laço se o usuário digitar 'q'
-
+    
     try:
         valor_idade = (input('Digite a idade do usuário: '))
         str_aniversario = input('Digite a data de aniversário: ')
@@ -48,9 +48,9 @@ while True:
         data_cad_convert = datetime.now().strftime('%d/%m/%Y') # registra a data do cadastro do usuário
 
         cartao_usuario = random.choice(cartoes)
-        usuario_cadastrado = User(valor_nome, valor_idade, data_niver_br, data_cad_convert, cartao_usuario)
+        usuario_cadastrado = User(valor_nome, valor_idade, data_niver_br, data_cad_convert)
         usuario_cadastrado.cadastrar_usuario()
-        usuario_cadastrado.desejar_boasvindas()
+        usuario_cadastrado.desejar_boasvindas(cartao_usuario)
         
     except ValueError:
         print('Entrada inválida. Digite um nome válido.')
