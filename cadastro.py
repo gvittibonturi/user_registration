@@ -13,19 +13,24 @@ usuarios = []
 class User():
     """Classe que cria e define o usuário de um sistema"""
 
-    def __init__(self, nome, idade, data_aniversario, data_cadastro):
+    def __init__(self, nome, idade, data_aniversario, data_cadastro, cartao_usuario):
         """Inicializa os atributos nome, idade, data_aniversario e data_cadastro"""
         self.nome = nome
         self.idade = idade
         self.data_aniversario = data_aniversario
         self.data_cadastro = data_cadastro
+        self.cartao_usuario = cartao_usuario
 
     def cadastrar_usuario(self):
-        """Cadastra novos usuáriosem uma lista de dicionários"""   
+        """Cadastra novos usuáriosem uma lista de dicionários"""
         info_usuario = {'Nome': self.nome, 'idade': self.idade, 'data_aniversario': self.data_aniversario,
                         'data_cadastro': self.data_cadastro}
         
         usuarios.append(info_usuario)
+
+    def desejar_boasvindas(self):
+        print(f'Olá {self.nome}, seu registro foi concluído com sucesso no dia {self.data_cadastro}.')
+        print(f'Parabéns, houve um sorteio e você ganhou um cartão de compras no valor de {self.cartao_usuario}')
 
 
 while True:
@@ -42,11 +47,10 @@ while True:
         data_niver_br = data_niver_convert.strftime('%d/%m;%Y') # converte a variável 'data_niver_convert' para padrão brasileiro
         data_cad_convert = datetime.now().strftime('%d/%m/%Y') # registra a data do cadastro do usuário
 
-        usuario_cadastrado = User(valor_nome, valor_idade, data_niver_br, data_cad_convert)
-        usuario_cadastrado.cadastrar_usuario()
-        
         cartao_usuario = random.choice(cartoes)
-        print(cartao_usuario)
+        usuario_cadastrado = User(valor_nome, valor_idade, data_niver_br, data_cad_convert, cartao_usuario)
+        usuario_cadastrado.cadastrar_usuario()
+        usuario_cadastrado.desejar_boasvindas()
         
     except ValueError:
         print('Entrada inválida. Digite um nome válido.')
